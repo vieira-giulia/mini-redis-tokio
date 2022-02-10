@@ -8,12 +8,11 @@ async fn main() -> io::Result<()> {
 
     // Write data in the background
     tokio::spawn(async move {
-        wr.write_all(b"hello\r\n").await?;
-        wr.write_all(b"world\r\n").await?;
-
-        // Sometimes, the rust type inferencer needs
-        // a little help
-        Ok::<_, io::Error>(())
+        let (mut rd, mut wr) = socket.split();
+        
+        if io::copy(&mut rd, &mut wr).await.is_err() {
+            eprintln!("failed to copy");
+        }
     });
 
     let mut buf = vec![0; 128];
