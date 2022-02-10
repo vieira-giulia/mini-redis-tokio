@@ -1,21 +1,19 @@
 use tokio::net::{TcpListener, TcpStream};
 use mini_redis::{Connection, Frame};
-use tokio::task::yield_now;
-use std::rc::Rc;
+
 
 #[tokio::main]
 async fn main() {
-    tokio::spawn(async {
-        // The scope forces `rc` to drop before `.await`.
-        {
-            let rc = Rc::new("hello");
-            println!("{}", rc);
-        }
+    let listener = TcpListener::bind("127.0.0.1:6379").await.unwrap();
 
-        // `rc` is no longer used. It is **not** persisted when
-        // the task yields to the scheduler
-        yield_now().await;
-    });
+    loop {
+        let (socket, _) = listener.accept().await.unwrap();
+        // A new task is spawned for each inbound socket. The socket is
+        // moved to the new task and processed there.
+        tokio::spawn(async move {
+            process(socket).await;
+        });
+    }
 }
 
 async fn process(socket: TcpStream) {
