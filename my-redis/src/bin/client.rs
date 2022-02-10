@@ -42,26 +42,35 @@ let manager = tokio::spawn(async move {
     }
 });
 
-// The `Sender` handles are moved into the tasks. As there are two
-// tasks, we need a second `Sender`.
-let tx2 = tx.clone();
-
-// Spawn two tasks, one gets a key, the other sets a key
 let t1 = tokio::spawn(async move {
+    let (resp_tx, resp_rx) = oneshot::channel();
     let cmd = Command::Get {
         key: "hello".to_string(),
+        resp: resp_tx,
     };
 
+    // Send the GET request
     tx.send(cmd).await.unwrap();
+
+    // Await the response
+    let res = resp_rx.await;
+    println!("GOT = {:?}", res);
 });
 
 let t2 = tokio::spawn(async move {
+    let (resp_tx, resp_rx) = oneshot::channel();
     let cmd = Command::Set {
         key: "foo".to_string(),
         val: "bar".into(),
+        resp: resp_tx,
     };
 
+    // Send the SET request
     tx2.send(cmd).await.unwrap();
+
+    // Await the response
+    let res = resp_rx.await;
+    println!("GOT = {:?}", res);
 });
 
 #[tokio::main]
