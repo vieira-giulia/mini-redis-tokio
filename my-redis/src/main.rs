@@ -1,5 +1,11 @@
 use tokio::net::{TcpListener, TcpStream};
 use mini_redis::{Connection, Frame};
+use bytes::Bytes;
+use std::collections::HashMap;
+use std::sync::{Arc, Mutex};
+
+
+type Db = Arc<Mutex<HashMap<String, Bytes>>>;
 
 
 #[tokio::main]
