@@ -1,0 +1,10 @@
+/Users/giuliavieira/Toposware/new-rs-mini-redis/mini-redis-tokio/my-redis/target/debug/deps/thread_local-1e6d5f5207465482.rmeta: /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/lib.rs /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/cached.rs /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/thread_id.rs /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/unreachable.rs
+
+/Users/giuliavieira/Toposware/new-rs-mini-redis/mini-redis-tokio/my-redis/target/debug/deps/libthread_local-1e6d5f5207465482.rlib: /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/lib.rs /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/cached.rs /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/thread_id.rs /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/unreachable.rs
+
+/Users/giuliavieira/Toposware/new-rs-mini-redis/mini-redis-tokio/my-redis/target/debug/deps/thread_local-1e6d5f5207465482.d: /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/lib.rs /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/cached.rs /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/thread_id.rs /Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/unreachable.rs
+
+/Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/lib.rs:
+/Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/cached.rs:
+/Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/thread_id.rs:
+/Users/giuliavieira/.cargo/registry/src/github.com-1ecc6299db9ec823/thread_local-1.1.3/src/unreachable.rs:
