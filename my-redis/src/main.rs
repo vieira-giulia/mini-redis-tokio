@@ -7,17 +7,22 @@ use std::sync::{Arc, Mutex};
 
 type Db = Arc<Mutex<HashMap<String, Bytes>>>;
 
-
 #[tokio::main]
 async fn main() {
     let listener = TcpListener::bind("127.0.0.1:6379").await.unwrap();
 
+    println!("Listening");
+
+    let db = Arc::new(Mutex::new(HashMap::new()));
+
     loop {
         let (socket, _) = listener.accept().await.unwrap();
-        // A new task is spawned for each inbound socket. The socket is
-        // moved to the new task and processed there.
+        // Clone the handle to the hash map.
+        let db = db.clone();
+
+        println!("Accepted");
         tokio::spawn(async move {
-            process(socket).await;
+            process(socket, db).await;
         });
     }
 }
